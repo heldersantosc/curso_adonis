@@ -1,0 +1,21 @@
+@layout('main')
+@section('content')
+
+<h1>{{title}}</h1>
+
+<!-- Exibe somente quando for salvo -->
+@if(old('notification'))
+    <div class="alert alert-success" role="alert">
+        {{ old('notification')}}
+    </div>
+@endif
+<!-- --> 
+
+<ul class="list-group">
+    <li class="list-group-item active">Activities</li>
+    @each(item in tasks)
+        <a href="#" class="list-group-item list-group-item-action">{{item.title}}</a>
+    @endeach
+</ul>
+
+@endsection
